@@ -23,7 +23,7 @@ def command():
         talk("You said: " + task)
         #print("You said: " + task)
     except sr.UnknownValueError:
-        talk("I didn't understand you")
+        talk("I didnt understand you")
         task = command()
 
     return task
