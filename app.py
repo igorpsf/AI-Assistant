@@ -7,14 +7,15 @@ def talk(words):
     print(words)
     os.system("say " + words)
 
-talk("Hi, ask me something")
+talk("Hi ")
 
 def command():
     r = sr.Recognizer()
 
     with sr.Microphone() as source:
-        print("Say something")
-        r.pause_threshold = 1
+        talk("Please ask me something")
+        #print("Please ask me something else")
+        #r.pause_threshold = 1
         r.adjust_for_ambient_noise(source, duration=1)
         audio = r.listen(source)
 
@@ -23,7 +24,7 @@ def command():
         talk("You said: " + task)
         #print("You said: " + task)
     except sr.UnknownValueError:
-        talk("I didnt understand you")
+        talk("I did not understand you")
         task = command()
 
     return task
@@ -32,15 +33,19 @@ def makeSomething(task):
     if "how are you" in task:
         talk("I am good, thank you igor")
 
-    if "who is making coffee" in task:
-        talk("It is Dmitri who likes to drink coffee")
+    if "what is your name" in task:
+        talk("I am AI assistant")
 
-    if "open robinhood" in task:
+    if "what are you doing" in task:
+        talk("I am talking with you and drinking orange juice")
+
+    if "open robin hood" in task:
         talk("Opening")
         url = "https://www.robinhood.com"
         webbrowser.open(url)
+
     elif "stop" in task:
-        talk("Sure")
+        talk("Sure, bye bye")
         sys.exit()
 
 while True:

@@ -10,3 +10,4 @@
 2) `pip install gTTS`
 3) `brew install portaudio`
 4) `pip3 install pyaudio`
+5) `pip install --upgrade google-cloud-speech`
